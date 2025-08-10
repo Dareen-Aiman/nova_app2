@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nova_app/widgets/app_elevated_button.dart';
+import 'package:nova_app/shared/widgets/app_elevated_button.dart';
 
 class AfterCreateAccount extends StatelessWidget {
   const AfterCreateAccount({super.key});
@@ -15,9 +15,11 @@ class AfterCreateAccount extends StatelessWidget {
           children: [
             Image.asset(
               'images/whiteBox.png',
+              height: 500,
+              width:350,
             ),
             AppElevatedButton(onPress: (){
-              Navigator.pushNamed(context, '/profile_screen');
+              Navigator.pushNamed(context, '/last_register_screen');
             }, buttonName: 'Next')
           ],
 

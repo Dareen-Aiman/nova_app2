@@ -31,13 +31,13 @@ class CustomProfileListTile extends StatelessWidget {
           decoration: BoxDecoration(
             // color: Colors.orange.shade500,
             // color: Colors.deepOrangeAccent,
-            color: const Color(0xFFFF7750),
+            color:  Colors.white,
             borderRadius: BorderRadius.circular(8),
           ),
           child:
            Icon(
             leadingIcon,
-            color: Colors.white,
+            color: Color(0xFF3E3E3E),
             // color: Color(0xFFFFC9C7),
 
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nova_app/widgets/app_elevated_button.dart';
-import 'package:nova_app/widgets/app_text_field.dart';
+import 'package:nova_app/shared/widgets/app_elevated_button.dart';
+import 'package:nova_app/shared/widgets/app_text_field.dart';
 
 class VerificationForRegisterScreen extends StatefulWidget {
   const VerificationForRegisterScreen({

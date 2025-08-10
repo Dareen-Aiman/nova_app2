@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nova_app/widgets/app_elevated_button.dart';
-
-import '../../widgets/app_text_field.dart';
+import 'package:nova_app/shared/network/style/app_colors.dart';
+import 'package:nova_app/shared/widgets/app_elevated_button.dart';
+import 'package:nova_app/shared/widgets/app_text_field.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,6 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   late TextEditingController _emailTextEditingController;
   late TextEditingController _passwordTextEditingController;
   late TapGestureRecognizer _tapGestureRecognizer;
+  late TapGestureRecognizer _tapGestureRecognizerForgot;
   bool _obscure = true;
   String? _emailErrorValue;
   String? _passwordErrorValue;
@@ -26,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailTextEditingController = TextEditingController();
     _passwordTextEditingController = TextEditingController();
     _tapGestureRecognizer = TapGestureRecognizer()..onTap = signUpAction;
+    _tapGestureRecognizerForgot =TapGestureRecognizer()..onTap=forgotPasswordAction;
     // _tapGestureRecognizer.onTap =signUpAction;
   }
 
@@ -34,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailTextEditingController.dispose();
     _passwordTextEditingController.dispose();
     _tapGestureRecognizer.dispose();
+    _tapGestureRecognizerForgot.dispose();
     super.dispose();
   }
 
@@ -120,14 +123,25 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Align(
               alignment: AlignmentDirectional.centerEnd,
-              child: Text(
-                'Forgot Password?',
-                style: GoogleFonts.nunitoSans(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                  color: const Color(0xFFFF7750),
+              child: RichText(
+                text: TextSpan(
+                  recognizer: _tapGestureRecognizerForgot,
+                  text: 'Forgot Password?',
+                    style: GoogleFonts.nunitoSans(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14,
+                      color: AppColors.primaryColor,
+                    ),
                 ),
               ),
+              // child: Text(
+              //   'Forgot Password?',
+              //   style: GoogleFonts.nunitoSans(
+              //     fontWeight: FontWeight.w600,
+              //     fontSize: 14,
+              //     color: AppColors.primaryColor,
+              //   ),
+              // ),
             ),
             const SizedBox(
               height: 215,
@@ -154,33 +168,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: GoogleFonts.nunitoSans(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: const Color(0xFFFF7750),
+                        color: AppColors.primaryColor,
                       ),
                     ),
                   ]),
             ),
-
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     Text(
-            //       'Don’t have an account? Please ',
-            //       style: GoogleFonts.nunitoSans(
-            //         fontSize: 14,
-            //         fontWeight: FontWeight.w600,
-            //         color: const Color(0xFF3E3E3E),
-            //       ),
-            //     ),
-            //     Text(
-            //       'Sign Up',
-            //       style: GoogleFonts.nunitoSans(
-            //         fontSize: 14,
-            //         fontWeight: FontWeight.w600,
-            //         color: const Color(0xFFFF7750),
-            //       ),
-            //     ),
-            //   ],
-            // ),
           ],
         ),
       ),
@@ -189,6 +181,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void signUpAction() {
     Navigator.pushNamed(context, '/sign_up_screen');
+  }
+  void forgotPasswordAction() {
+    Navigator.pushNamed(context, '/forgot_password_screen');
   }
 
   void performLogin() {

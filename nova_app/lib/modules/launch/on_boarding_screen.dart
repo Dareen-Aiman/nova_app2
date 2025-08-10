@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nova_app/shared/network/style/app_colors.dart';
+import 'package:nova_app/shared/widgets/app_elevated_button.dart';
+import 'package:nova_app/shared/widgets/on_boarding_content.dart';
+import 'package:nova_app/shared/widgets/page_view_custom_indicator.dart';
 
-import '../../widgets/app_elevated_button.dart';
-import '../../widgets/on_boarding_content.dart';
-import '../../widgets/page_view_custom_indicator.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -148,7 +149,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 icon: const Icon(
                   Icons.arrow_circle_left_rounded,
                   size: 36,
-                  color: Color(0xFFFF7750),
+                  color: AppColors.primaryColor,
                 ),
               ),
               IconButton(
@@ -162,7 +163,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 icon: const Icon(
                   Icons.arrow_circle_right_rounded,
                   size: 36,
-                  color: Color(0xFFFF7750),
+                  color: AppColors.primaryColor,
                 ),
               ),
             ],

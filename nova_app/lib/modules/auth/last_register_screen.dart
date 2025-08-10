@@ -4,14 +4,14 @@ import 'package:nova_app/shared/network/style/app_colors.dart';
 import 'package:nova_app/shared/widgets/app_elevated_button.dart';
 import 'package:nova_app/shared/widgets/app_text_field.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+class LastRegisterScreen extends StatefulWidget {
+  const LastRegisterScreen({super.key});
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<LastRegisterScreen> createState() => _LastRegisterScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _LastRegisterScreenState extends State<LastRegisterScreen> {
   late TextEditingController _regionTextEditingController;
 
   @override

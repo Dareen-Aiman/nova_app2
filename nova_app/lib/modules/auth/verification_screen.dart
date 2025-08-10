@@ -1,14 +1,34 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nova_app/widgets/app_elevated_button.dart';
+import 'package:nova_app/shared/network/style/app_colors.dart';
+import 'package:nova_app/shared/widgets/app_elevated_button.dart';
+import 'package:nova_app/shared/widgets/verification_text_field.dart';
 
-import '../../widgets/verification_text_field.dart';
-
-class VerificationScreen extends StatelessWidget {
+class VerificationScreen extends StatefulWidget {
   const VerificationScreen({
     super.key});
 
+  @override
+  State<VerificationScreen> createState() => _VerificationScreenState();
+}
 
+class _VerificationScreenState extends State<VerificationScreen> {
+  late TapGestureRecognizer _resetPasswordTapGestureRecognizerForgot;
+
+
+  @override
+  void initState() {
+    super.initState();
+    _resetPasswordTapGestureRecognizerForgot = TapGestureRecognizer()..onTap =resetPasswordAction;
+
+  }
+
+  @override
+  void dispose() {
+    _resetPasswordTapGestureRecognizerForgot.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,11 +111,37 @@ class VerificationScreen extends StatelessWidget {
             const SizedBox(height: 300),
 
             AppElevatedButton(onPress: () {
-                Navigator.pushNamed(context, '/home_screen');
-            }, buttonName: 'Verify Now')
+                Navigator.pushNamed(context, '/bottom_navigation_bar_screen');
+            }, buttonName: 'Verify Now'),
+
+            const SizedBox(height: 15),
+
+            RichText(
+              text: TextSpan(
+                  text: 'You forgot your password? Please ',
+                  style: GoogleFonts.nunitoSans(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: const Color(0xFF3E3E3E),
+                  ),
+                  children: [
+                    TextSpan(
+                      text: 'Reset Password',
+                      recognizer: _resetPasswordTapGestureRecognizerForgot,
+                      style: GoogleFonts.nunitoSans(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+                  ]),
+            ),
           ],
         ),
       ),
     );
+  }
+  void resetPasswordAction() {
+    Navigator.pushNamed(context, '/reset_password_screen');
   }
 }

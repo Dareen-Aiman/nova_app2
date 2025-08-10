@@ -1,8 +1,18 @@
-import 'package:flutter/cupertino.dart';
 
-class BnScreen{
-  final String title;
+
+import 'package:flutter/widgets.dart';
+
+class BnScreens{
+  // final PreferredSizeWidget appBar;
   final Widget widget;
+  final String title;
+  final IconData? firstIcon;
+  final IconData? secondIcon;
 
-  BnScreen({required this.title, required this.widget});
+
+  BnScreens({
+    required this.title
+    ,this.firstIcon,
+    this.secondIcon,
+    required this.widget});
 }

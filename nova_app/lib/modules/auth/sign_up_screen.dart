@@ -1,8 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nova_app/widgets/app_text_field.dart';
-import '../../widgets/app_elevated_button.dart';
+import 'package:nova_app/shared/network/style/app_colors.dart';
+import 'package:nova_app/shared/widgets/app_elevated_button.dart';
+import 'package:nova_app/shared/widgets/app_text_field.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -144,7 +145,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     style: GoogleFonts.nunitoSans(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
-                      color: const Color(0xFFFF7750),
+                      color: AppColors.primaryColor,
                     ),
                   ),
                 ],
